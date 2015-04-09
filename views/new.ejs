@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #main-container h2 {
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+        }
+        #main-container {
+            width: 550px;
+            border: 4px solid black;
+            margin-left: 450px;
+            text-align: center;
+        }
+
+        #result {
+            border: 2px solid black;
+            height: 100px;
+            width: 550px;
+            margin-left: 450px;
+            text-align: center;
+            background-color: green;
+            color:white;
+            padding-top: 40px;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 50px;
+
+        }
+
+        input {
+            border: 1px solid black;
+        }
+
+        label {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+        }
+
+        .btn {
+            margin-left: 240px;
+            background-color: blue;
+            color: white;
+        }
+
+        #errors {
+            color:red;
+            text-align: center;
+        }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!--<script type ="text/javascript" src="/socket.io/socket.io.js"></script>-->
+    <script type="text/javascript">
+    </script>
+</head>
+<body>
+
+
+<div id="main-container">
+    <h1>Add a Mongoose: </h1>
+
+    <form action="/mongoose" method="post">
+        <label>
+            Mongoose Name: <input type="text" name="name"><br>
+        </label>
+        <label>
+            Mongoose Age: <input type="number" name="age"><br>
+        </label>
+
+        <label>
+            Mongoose Description: <textarea name="description"></textarea><br>
+        </label>
+        <label>
+            Mongoose Hobbies: <input type="text" name="hobbies"><br>
+        </label>
+
+        <input class="btn" type= "submit" value="Add a Mongoose">
+    </form>
+
+
+
+    <!--<% if(typeof(errors) != 'undefined' ) { %>-->
+    <!--<% for (var x in errors) { %>-->
+    <!--<h3><%= errors[x].message %></h3>-->
+    <!--<% } %>-->
+    <!--<% } %>-->
+
+    <div id="errors">
+        <% if(typeof(errors) != 'undefined' ) { %>
+        <h3><%= errors.name.message %></h3>
+        <h3><%= errors.age.message %></h3>
+        <h3><%= errors.description.message %></h3>
+        <h3><%= errors.hobbies.message %></h3>
+        <% } %>
+    </div>
+
+</div>
+
+<a class="btn" href="/">Go to Mongoose Lists!</a>
+
+
+</body>
+</html>
